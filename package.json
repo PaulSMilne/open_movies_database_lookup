@@ -1,0 +1,17 @@
+{
+  "name": "weekend",
+  "version": "1.0.0",
+  "description": "Goats v. Pokemon - Defense of Edinburgh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Milne",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
