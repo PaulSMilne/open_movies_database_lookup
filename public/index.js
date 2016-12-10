@@ -1,9 +1,20 @@
 var app = function(){
 
-     var submit = document.querySelector("#submit");
-     submit.onclick = handleSubmit;
+     var searchBox = document.querySelector("#search_box");
+     // showFavorites();
+     searchBox.onchange = handleSubmit;
 
 }
+
+// var showFavorites = function(){
+//      var favoritesArea = document.querySelector("#favorites");
+//      if (localStorage){
+//           favoritesArea.innerText = "See favorites";
+//      } 
+//           else {
+//           favoritesArea.style.visibility = "invisible";
+//      }
+// }
 
 var handleSubmit = function(){
      var searchResults = document.getElementById("search_results");
