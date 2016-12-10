@@ -1,0 +1,9 @@
+img {
+     float:left;
+     margin-right:10px;
+}
+
+.textBox {
+     background-color: silver; 
+     padding: 10px;  
+}

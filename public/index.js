@@ -28,13 +28,37 @@ var requestComplete = function(){
 
 var displayResult = function(result){
      var searchResults = document.getElementById("search_results");
-     console.log(searchResults);
+
      var poster = document.createElement("img");
-     console.log(poster);
-     console.log(result.Poster);
      poster.src = result.Poster;
-     console.log(poster.src);
+
+     var title = document.createElement("p");
+     title.innerText = "Title: " + result.Title;
+
+     var year = document.createElement("p");
+     year.innerText = "Year: " + result.Year;
+
+     var director = document.createElement("p");
+     director.innerText = "Director: " + result.Director;
+
+     var starring = document.createElement("p");
+     starring.innerText = "Starring: " + result.Actors;
+
+     var rating = document.createElement("p");
+     rating.innerText = "IMdB rating: " + result.imdbRating;
+
+     var plot = document.createElement("p");
+     plot.classList.add('textBox');
+     plot.innerText = result.Plot;
+
      searchResults.appendChild(poster);
+     searchResults.appendChild(title);
+     searchResults.appendChild(year);
+     searchResults.appendChild(director);
+     searchResults.appendChild(starring);
+     searchResults.appendChild(rating);
+     searchResults.appendChild(plot);
+
 }
 
 window.onload = app;
