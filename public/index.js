@@ -35,32 +35,72 @@ var displayResult = function(result){
      var poster = document.createElement("img");
      poster.src = result.Poster;
 
-     var title = document.createElement("p");
-     title.innerText = "Title: " + result.Title;
+     var resultsTable = document.createElement("table");
 
-     var year = document.createElement("p");
-     year.innerText = "Year: " + result.Year;
+     var titleRow = document.createElement("tr");
+     titleRow.classList.add("blue");
+     var titleHead = document.createElement("th");
+     titleHead.innerText = "Title";
+     var title = document.createElement("td");
+     title.innerText = result.Title;
 
-     var director = document.createElement("p");
-     director.innerText = "Director: " + result.Director;
+     var yearRow = document.createElement("tr");
+     var yearHead = document.createElement("th");
+     yearHead.innerText = "Year";
+     var year = document.createElement("td");
+     year.innerText = result.Year;
 
-     var starring = document.createElement("p");
-     starring.innerText = "Starring: " + result.Actors;
+     var directorRow = document.createElement("tr");
+     directorRow.classList.add("blue");
+     var directorHead = document.createElement("th");
+     directorHead.innerText = "Director";
+     var director = document.createElement("td");
+     director.innerText = result.Director;
 
-     var rating = document.createElement("p");
-     rating.innerText = "IMdB rating: " + result.imdbRating;
+     var starringRow = document.createElement("tr");
+     var starringHead = document.createElement("th");
+     starringHead.innerText = "Starring";
+     var starring = document.createElement("td");
+     starring.innerText = result.Actors;
 
-     var plot = document.createElement("p");
-     plot.classList.add('textBox');
+     var ratingRow = document.createElement("tr");
+     ratingRow.classList.add("blue");
+     var ratingHead = document.createElement("th");
+     ratingHead.innerText = "IMDb Rating";
+     var rating = document.createElement("td");
+     rating.innerText = result.imdbRating;
+
+     var plotRow = document.createElement("tr");
+     var plot = document.createElement("td");
+     plot.setAttribute("colspan", "2");
      plot.innerText = result.Plot;
 
+     titleRow.appendChild(titleHead);
+     titleRow.appendChild(title);
+
+     yearRow.appendChild(yearHead);
+     yearRow.appendChild(year);
+
+     directorRow.appendChild(directorHead);
+     directorRow.appendChild(director);
+
+     starringRow.appendChild(starringHead);
+     starringRow.appendChild(starring);
+
+     ratingRow.appendChild(ratingHead);
+     ratingRow.appendChild(rating);
+
+     plotRow.appendChild(plot);
+
+     resultsTable.appendChild(titleRow);
+     resultsTable.appendChild(yearRow);
+     resultsTable.appendChild(directorRow);
+     resultsTable.appendChild(starringRow);
+     resultsTable.appendChild(ratingRow);
+     resultsTable.appendChild(plotRow);
+
      searchResults.appendChild(poster);
-     searchResults.appendChild(title);
-     searchResults.appendChild(year);
-     searchResults.appendChild(director);
-     searchResults.appendChild(starring);
-     searchResults.appendChild(rating);
-     searchResults.appendChild(plot);
+     searchResults.appendChild(resultsTable);
 
 }
 

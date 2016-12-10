@@ -1,9 +1,41 @@
+body {
+     font-family:Verdana, sans-serif
+}
+
+h1 {
+     font-family: 'Monoton', cursive;
+     text-align: center;
+}
+
+#search {
+     text-align:center;
+}
+
+#search_box {
+     size:100;
+}
+
 img {
      float:left;
      margin-right:10px;
+     width:250px;
 }
 
-.textBox {
-     background-color: silver; 
-     padding: 10px;  
+
+#search_results {
+     margin-top: 25px;
+}
+
+table {
+     font-size: .8em;
+}
+
+th, td {
+     text-align:left;
+     vertical-align: top;
+     padding:5px;
+}
+
+.blue {
+     background-color: #F6FBFF;
 }
