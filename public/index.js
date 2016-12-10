@@ -10,6 +10,7 @@ var handleSubmit = function(){
      searchResults.innerText = "";
      var searchBox = document.querySelector("#search_box");
      var searchTerm = searchBox.value;
+     if (searchTerm == "") return;
      var url = "http://www.omdbapi.com/?t=" + searchTerm + "&plot=short&r=json";
      makeRequest(url, requestComplete);
 }
