@@ -6,6 +6,8 @@ var app = function(){
 }
 
 var handleSubmit = function(){
+     var searchResults = document.getElementById("search_results");
+     searchResults.innerText = "";
      var searchBox = document.querySelector("#search_box");
      var searchTerm = searchBox.value;
      var url = "http://www.omdbapi.com/?t=" + searchTerm + "&plot=short&r=json";
