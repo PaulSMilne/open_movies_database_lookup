@@ -16,7 +16,7 @@ h1 {
      font-size: 1.5em;
 }
 
-#favoritesLink {
+#favoritesLink, #credits {
      text-align: center;
 }
 
@@ -49,4 +49,9 @@ th, td {
      background-color: #ECECEC;
      border-top:solid white 20px;
      padding:20px;
+}
+
+p#credits {
+     clear:left;
+     font-size: .7em;
 }
