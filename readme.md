@@ -18,6 +18,7 @@ Submit movie name will return a selection of data about the movie:
 
 ## Extensions
 
-* Trailer from YouTube
 * Save movie as favorite in local storage
 * Display favorites in a bar chart showing IMdB rating
+* Display a progress bar for when search takes longer than a second or two
+* Trailer from YouTube
