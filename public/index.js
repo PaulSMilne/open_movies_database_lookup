@@ -25,6 +25,8 @@ var handleSubmit = function(){
      console.log(urlS);
      makeRequest(url, requestComplete);
      makeRequest(urlS, requestCompleteS);
+     var creditPara = document.getElementById("credits");
+     creditPara.style.textAlign = "left";
 }
 
 var makeRequest = function(url, callback){
@@ -158,7 +160,19 @@ var displayResult = function(result){
 }
 
 var displayResultS = function(results){
-     
+     var relatedResults = document.getElementById("related_results");
+
+     relatedResults.style.display = "block";
+
+     var relatedList = document.createElement('ul');
+
+     for (result of results){
+          var listItem = document.createElement('li');
+          listItem.innerText = result.Title + ", " + result.Year + ", " + result.Type + ".";
+          relatedList.appendChild(listItem);
+     }
+
+     relatedResults.appendChild(relatedList);
 }
 
 // var handleFavorites = function(result){

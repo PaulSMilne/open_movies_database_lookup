@@ -32,7 +32,7 @@ img {
      margin-top: 50px;
 }
 
-table, p {
+table, p, #related_results {
      font-size: .8em;
 }
 
@@ -51,6 +51,12 @@ th, td {
      border-top:solid white 20px;
      padding:20px;
 }
+
+#related_results {
+     clear:left;
+     display: none;
+}
+
 
 p#credits {
      clear:left;
