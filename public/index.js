@@ -154,6 +154,6 @@ var displayResult = function(result){
 
 //      }
 
-}
+// }
 
 window.onload = app;
