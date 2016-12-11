@@ -21,7 +21,10 @@ var handleSubmit = function(){
      var searchTerm = searchBox.value;
      if (searchTerm == "") return;
      var url = "http://www.omdbapi.com/?t=" + searchTerm + "&plot=short&r=json";
+     var urlS = "http://www.omdbapi.com/?s=" + searchTerm + "&plot=short&r=json";
+     console.log(urlS);
      makeRequest(url, requestComplete);
+     makeRequest(urlS, requestCompleteS);
 }
 
 var makeRequest = function(url, callback){
@@ -38,7 +41,19 @@ var requestComplete = function(){
      displayResult(movie);
 }
 
+var requestCompleteS = function(){
+     if (this.status !== 200) return;
+     var jsonString = this.responseText;
+     var movies = JSON.parse(jsonString);
+     movies = movies.Search;
+     console.log(movies);
+     displayResultS(movies);
+}
+
 var displayResult = function(result){
+     var resultId = result.imdbID;
+     console.log(resultId);
+
      var searchResults = document.getElementById("search_results");
 
      var poster = document.createElement("img");
@@ -140,6 +155,10 @@ var displayResult = function(result){
      // searchResults.appendChild(favoritesCheck);
 
      // checkBox.onchange = handleFavorites(result);
+}
+
+var displayResultS = function(results){
+     
 }
 
 // var handleFavorites = function(result){
