@@ -5,15 +5,6 @@ var app = function(){
      searchBox.onchange = handleSubmit;
 }
 
-// var showFavorites = function(){
-//      var favoritesLink = document.querySelector("#favoritesLink");
-//      if (localStorage) {
-//           favoritesLink.style.display = "block";
-//      } else {
-//           favoritesLink.style.display = "none";
-//      }
-// }
-
 var handleSubmit = function(){
      var searchResults = document.getElementById("search_results");
      searchResults.innerText = "";
@@ -54,7 +45,6 @@ var requestCompleteS = function(){
 
 var displayResult = function(result){
      var resultId = result.imdbID;
-     console.log(resultId);
 
      var searchResults = document.getElementById("search_results");
 
@@ -96,6 +86,12 @@ var displayResult = function(result){
      var rating = document.createElement("td");
      rating.innerText = result.imdbRating;
 
+     var imdbLinkRow = document.createElement("tr");
+     var imdbLinkHead = document.createElement("th");
+     imdbLinkHead.innerText = "IMDB";
+     var imdbLink = document.createElement("td");
+     imdbLink.innerHTML = "<a href='http://www.imdb.com/title/" + result.imdbID + "/'>http://www.imdb.com/title/" +  result.imdbID + "/</a>";
+
      var plotRow = document.createElement("tr");
      var plot = document.createElement("td");
      plot.setAttribute("colspan", "2");
@@ -119,6 +115,9 @@ var displayResult = function(result){
 
      plotRow.appendChild(plot);
 
+     imdbLinkRow.appendChild(imdbLinkHead);
+     imdbLinkRow.appendChild(imdbLink);
+
      resultsTable.appendChild(titleRow);
      resultsTable.appendChild(yearRow);
      resultsTable.appendChild(directorRow);
@@ -127,6 +126,7 @@ var displayResult = function(result){
 
      if (result.Type === "series"){
           var seasonsRow = document.createElement("tr");
+          seasonsRow.classList.add("blue");
           var seasonsHead = document.createElement("th");
           var seasons = document.createElement("td");
           seasonsHead.innerText = "Seasons";
@@ -137,26 +137,14 @@ var displayResult = function(result){
      }
 
      resultsTable.appendChild(plotRow);
+     resultsTable.appendChild(imdbLinkRow);
 
-     // var favoritesCheck = document.createElement("p");
-
-     // var checkBox = document.createElement("input");
-     // checkBox.setAttribute("type", "checkbox");
-     // checkBox.setAttribute("id", "favoritesCheckBox");
-
-     // var checkBoxLabel = document.createElement("label");
-     // checkBoxLabel.setAttribute("for", "favoritesCheckBox");
-     // checkBoxLabel.innerText = "Favorite";
-
-     // favoritesCheck.appendChild(checkBox);
-     // favoritesCheck.appendChild(checkBoxLabel);
-
+     var relatedResultsLink = document.createElement('p');
+     relatedResultsLink.innerHTML = "<a href='#related_results'>Related results</a>";
 
      searchResults.appendChild(poster);
      searchResults.appendChild(resultsTable);
-     // searchResults.appendChild(favoritesCheck);
-
-     // checkBox.onchange = handleFavorites(result);
+     searchResults.appendChild(relatedResultsLink);
 }
 
 var displayResultS = function(results){
@@ -174,19 +162,5 @@ var displayResultS = function(results){
 
      relatedResults.appendChild(relatedList);
 }
-
-// var handleFavorites = function(result){
-
-//      var checkBox = document.getElementById("favoritesCheckBox");
- 
-//      if (checkBox.checked == true) {
-
-//           var film = result.title;
-//           console.log(result);
-//           localStorage.setItem(film, film);
-
-//      }
-
-// }
 
 window.onload = app;

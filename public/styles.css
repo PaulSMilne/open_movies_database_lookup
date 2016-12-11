@@ -52,6 +52,10 @@ th, td {
      padding:20px;
 }
 
+#related_results_link {
+     display:none;
+}
+
 #related_results {
      clear:left;
      display: none;
