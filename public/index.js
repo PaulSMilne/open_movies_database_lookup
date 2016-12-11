@@ -122,8 +122,23 @@ var displayResult = function(result){
 
      resultsTable.appendChild(plotRow);
 
+     var favoritesCheck = document.createElement("p");
+
+     var checkBox = document.createElement("input");
+     checkBox.setAttribute("type", "checkbox");
+     checkBox.setAttribute("id", "favoritesCheckBox");
+
+     var checkBoxLabel = document.createElement("label");
+     checkBoxLabel.setAttribute("for", "favoritesCheckBox");
+     checkBoxLabel.innerText = "Favorite";
+
+     favoritesCheck.appendChild(checkBox);
+     favoritesCheck.appendChild(checkBoxLabel);
+
+
      searchResults.appendChild(poster);
      searchResults.appendChild(resultsTable);
+     searchResults.appendChild(favoritesCheck);
 
 }
 
