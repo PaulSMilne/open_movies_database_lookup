@@ -168,7 +168,7 @@ var displayResultS = function(results){
 
      for (result of results){
           var listItem = document.createElement('li');
-          listItem.innerText = result.Title + ", " + result.Year + ", " + result.Type + ".";
+          listItem.innerHTML =  "<a href='http://www.imdb.com/title/" + result.imdbID + "/' id=" + result.imdbID + ">" + result.Title + "</a>, " + result.Year + ", " + result.Type + ".";
           relatedList.appendChild(listItem);
      }
 
