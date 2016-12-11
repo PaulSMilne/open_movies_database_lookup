@@ -16,6 +16,10 @@ h1 {
      font-size: 1.5em;
 }
 
+#favoritesLink {
+     text-align: center;
+}
+
 img {
      float:left;
      margin-right:10px;
@@ -39,4 +43,10 @@ th, td {
 
 .blue {
      background-color: #F6FBFF;
+}
+
+.plot {
+     background-color: #ECECEC;
+     border-top:solid white 20px;
+     padding:20px;
 }

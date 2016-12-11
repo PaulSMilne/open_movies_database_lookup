@@ -1,20 +1,19 @@
 var app = function(){
 
      var searchBox = document.querySelector("#search_box");
-     // showFavorites();
+     showFavorites();
      searchBox.onchange = handleSubmit;
 
 }
 
-// var showFavorites = function(){
-//      var favoritesArea = document.querySelector("#favorites");
-//      if (localStorage){
-//           favoritesArea.innerText = "See favorites";
-//      } 
-//           else {
-//           favoritesArea.style.visibility = "invisible";
-//      }
-// }
+var showFavorites = function(){
+     var favoritesLink = document.querySelector("#favoritesLink");
+     if (localStorage) {
+          favoritesLink.style.display = "block";
+     } else {
+          favoritesLink.style.display = "none";
+     }
+}
 
 var handleSubmit = function(){
      var searchResults = document.getElementById("search_results");
@@ -85,6 +84,7 @@ var displayResult = function(result){
      var plot = document.createElement("td");
      plot.setAttribute("colspan", "2");
      plot.innerText = result.Plot;
+     plot.classList.add("plot");
 
      titleRow.appendChild(titleHead);
      titleRow.appendChild(title);
@@ -108,6 +108,18 @@ var displayResult = function(result){
      resultsTable.appendChild(directorRow);
      resultsTable.appendChild(starringRow);
      resultsTable.appendChild(ratingRow);
+
+     if (result.Type === "series"){
+          var seasonsRow = document.createElement("tr");
+          var seasonsHead = document.createElement("th");
+          var seasons = document.createElement("td");
+          seasonsHead.innerText = "Seasons";
+          seasons.innerText = result.totalSeasons;
+          seasonsRow.appendChild(seasonsHead);
+          seasonsRow.appendChild(seasons);
+          resultsTable.appendChild(seasonsRow);
+     }
+
      resultsTable.appendChild(plotRow);
 
      searchResults.appendChild(poster);
