@@ -8,12 +8,13 @@ var app = function(){
 var handleSubmit = function(){
      var searchResults = document.getElementById("search_results");
      searchResults.innerText = "";
+     var relatedResults = document.getElementById("related_results");
+     relatedResults.innerText = "";
      var searchBox = document.querySelector("#search_box");
      var searchTerm = searchBox.value;
      if (searchTerm == "") return;
-     var url = "http://www.omdbapi.com/?t=" + searchTerm + "&plot=short&r=json";
+     var url = "http://www.omdbapi.com/?t=" + searchTerm + "&plot=full&r=json";
      var urlS = "http://www.omdbapi.com/?s=" + searchTerm + "&plot=short&r=json";
-     console.log(urlS);
      makeRequest(url, requestComplete);
      makeRequest(urlS, requestCompleteS);
      var creditPara = document.getElementById("credits");
@@ -93,10 +94,11 @@ var displayResult = function(result){
      imdbLink.innerHTML = "<a href='http://www.imdb.com/title/" + result.imdbID + "/'>http://www.imdb.com/title/" +  result.imdbID + "/</a>";
 
      var plotRow = document.createElement("tr");
+     plotRow.classList.add("blue");
+     var plotHead = document.createElement("th");
+     plotHead.innerText = "Plot";
      var plot = document.createElement("td");
-     plot.setAttribute("colspan", "2");
      plot.innerText = result.Plot;
-     plot.classList.add("plot");
 
      titleRow.appendChild(titleHead);
      titleRow.appendChild(title);
@@ -113,6 +115,7 @@ var displayResult = function(result){
      ratingRow.appendChild(ratingHead);
      ratingRow.appendChild(rating);
 
+     plotRow.appendChild(plotHead);
      plotRow.appendChild(plot);
 
      imdbLinkRow.appendChild(imdbLinkHead);
@@ -123,10 +126,11 @@ var displayResult = function(result){
      resultsTable.appendChild(directorRow);
      resultsTable.appendChild(starringRow);
      resultsTable.appendChild(ratingRow);
+     resultsTable.appendChild(imdbLinkRow);
+     resultsTable.appendChild(plotRow);
 
      if (result.Type === "series"){
           var seasonsRow = document.createElement("tr");
-          seasonsRow.classList.add("blue");
           var seasonsHead = document.createElement("th");
           var seasons = document.createElement("td");
           seasonsHead.innerText = "Seasons";
@@ -135,9 +139,6 @@ var displayResult = function(result){
           seasonsRow.appendChild(seasons);
           resultsTable.appendChild(seasonsRow);
      }
-
-     resultsTable.appendChild(plotRow);
-     resultsTable.appendChild(imdbLinkRow);
 
      var relatedResultsLink = document.createElement('p');
      relatedResultsLink.innerHTML = "<a href='#related_results'>Related results</a>";
@@ -162,5 +163,11 @@ var displayResultS = function(results){
 
      relatedResults.appendChild(relatedList);
 }
+
+// var idLookup = function(result){
+//      var movieID = result.imdbID;
+//      var urlID = "http://www.omdbapi.com/?i=" + movieID;
+//      makeRequest(urlID, requestComplete);
+// }
 
 window.onload = app;
